@@ -32,29 +32,28 @@ sideMenu.style.left = `-${sideMenu.offsetWidth}px`;
 
 
 
-const getUserLocation = () => {
-    let locationRequest = searchInput.value;
-    console.log(locationRequest);
-    if(locationRequest == ''){
-        console.log('All fields are required');
-        locationRequest = 'London';
-    }
-    return locationRequest;
+const autoWeather = async (url) => {
+    const response = await fetch(url)
+    const jsonData = await response.json()
+    if(!response.ok) console.log(response);
+
+    setWeatherInfo(jsonData)
 }
 
-const buildRequestUrl = (location_request) => {
-    //return `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${location_request}&days=${5}`;
-    return `http://localhost:3500/`
+const searchedWeather = async (url) => {
+    const response = await fetch(url)
+    const jsonData = await response.json()
+    if(!response.ok) console.log(response);
+
+    setWeatherInfo(jsonData)
 }
 
 
-const requestWeather = async (url) => {
-    const response = await fetch(url);
-    const jsonData = await response.json();
-    console.log(jsonData);
-    setWeatherInfo(jsonData);
-}
-
+searchInput.addEventListener('input', async () => {
+    const response = await fetch(`http://localhost:3500/search?q=${searchInput.value}`)
+    const jsonData = await response.json()
+    console.log(jsonData)
+})
 
 const setWeatherInfo = (data) => {
     if(data.error){
