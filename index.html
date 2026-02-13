@@ -3,124 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <script src="https://kit.fontawesome.com/b77d45241e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css">
-    <script src="script.js" defer></script>
+    <script src="src.js" defer></script>
+    <title>Weather App</title>
 </head>
 <body>
-    <div class="top-menu">
-        <i class="fa-solid fa-bars"></i><span class="selected-location">Lebowakgomo</span><i class="fa-solid fa-location-pin"></i>
-    </div>
+    <header>
+        <div class="divInput">
+            <input id="input-location" placeholder="Search">
+            <div class="autofill"></div>
+        </div>
+    </header>
 
-    <div class="current-weather-data-container">
-        <div><h1 class="current-temp">21</h1></div>
-        <div class="weather-desc-container">
-            <p>Feels like <span id="feels-like-temp">23</span></p>
-            <p id="current-cond"></p>
-        </div>
-        <div><img class="current-weather-icon" src=""></div>
-    </div>
+    <div class="gen-weather-info">
 
-    <div class="weather-forecast">
-        <h5>Weather forecast <span class="selected-location"></span></h5>
-        <div class="hourly-weather-container">
-            
-        </div>
-    </div>
-
-    <div class="more-weather-info">
-        <div>
-            <span><i class="fa-solid fa-sun"></i> UV index</span>
-            <span id="uv-index-value"></span>
-        </div>
-
-        <div>
-            <span><i class="fa-solid fa-droplet"></i> Humidity</span>
-            <span id="humidity-value"></span>
-        </div>
-
-        <div>
-            <span><i class="fa-solid fa-wind"></i> Wind</span>
-            <span id="wind-speed-value"></span>
-        </div>
-
-        <div>
-            <span><i class="fa-solid fa-vial"></i> Dew Point</span>
-            <span id="dew-point-value"></span>
-        </div>
-
-        <div>
-            <span><i class="fa-solid fa-eye"></i> Visibility</span>
-            <span id="visibility-value"></span>
-        </div>
-
-        <div>
-            <span><i class="fa-solid fa-tent-arrows-down"></i> Pressure</span>
-            <span id="pressure-value"></span>
-        </div>
-    </div>
-
-    <div class="moon-info-container">
-        <div>
-            <p>Moonrise</p><p id="moonrise-time"></p>
-        </div>
-        <div>
-            <p><img src="image-from-rawpixel-id-10127837-png.png" id="moon-image"></p><p id="moon-phase">Waxing crescent</p>
-        </div>
-        <div>
-            <p>Moonset</p><p id="moonset-time"></p>
-        </div>
-    </div>
-
-    <div class="side-menu">
-        <div class="sm-top-menu">
-            <input type="text" placeholder="Search" id="search-input"><i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div class="sm-selected-location">
+        <div class="current-weather">
             <div>
-                <i class="fa-solid fa-location-pin"></i><span class="selected-location"></span>
-                <p id="country-name"></p>
-                <p class="country-info">Local time:<span id="local-time"></span></p>
-                <p class="country-info">Longitude:<span id="long"></span></p>
-                <p class="country-info">Latitude:<span id="lat"></span></p>
+                <span><img src="//cdn.weatherapi.com/weather/64x64/day/176.png" id="current-weather-icon"></span>
+                <div>
+                    <h4 id="current-weather-desc">Few Clouds</h4>
+                    <h1 id="current-weather-tempC">23 C</h1>
+                </div>
             </div>
-
-            <div><img src="" id="sm-weather-icon"></div>
         </div>
-        <p><button id="btnManage-locations">Manage Locations</button></p>
-        <a href="https://weather.com/"><i class="fa-solid fa-circle-info"></i> Report wrong location</a>
+
+        <div class="location-info">
+            <h4 id="weather-location">Seatle, United States</h4>
+            <span id="weather-feels-like">Feels Like 25 C</span>
+        </div>
+
     </div>
 
-    <div class="videos">
-        <div class="div-video-title">
-            <span>Videos</span>
-            <span></span>
-        </div>
-        <div class="video-container">
-            <div class="vid-links">
-                <div class="video-title">
-                    Weather alert: SA Weather Service warns of heavy rains...
+
+    <div class="detailed-weather-content">
+        <div class="content-left">
+            <div class="hourly-weather"></div>
+
+            <div>
+                <div class="cWind">
+                    <div>
+                        <h5>Wind</h5>
+                        <h3 id="now-windSpeed">4.3 Km/h</h3>
+                        <p style="margin:0px;">Max windspeed</p>
+                        <span id="now-windSpeed-max">23 km</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
+                    </div>
                 </div>
-                <div class="video-thumbnail">
-                    <img src="The-South-African-Weather-Service-is-warning-motorists-heading-back-to-the-office-next-week-to-brace-for-heavy-rains-in-parts-of-the-country.webp">
+
+                <div class="cHumidity">
+                    <div>
+                        <h5>Humidity</h5>
+                        <h3 id="now-humidity">4 %</h3>
+                        <p style="margin:0px;">Dewpoint</p>
+                        <span id="dewpoint-temp">44 C</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
+                    </div>
                 </div>
+
+                <div class="cUV">
+                    <h5>UV</h5>
+                    <h3>8.8</h3>
+                    <div style="background-color: red; height: 2px;">
+                        <span id="uv-index-visualizer" style="background-color: gray; margin-left:15%; padding: 2px;">.</span>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="vid-links">
-                <div class="video-title">
-                    Icy weather expected in Colarado
+            <!--Second row-->
+            <div>
+                <div class="cPressure">
+                    <div>
+                        <h5>Pressure</h5>
+                        <h3 id="now-pressure">1010</h3>
+                        <p style="margin:0px;">Wind Chill</p>
+                        <span id="wind-chill">13 C</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
+                    </div>
                 </div>
-                <div class="video-thumbnail">
-                    <img src="c3dd17f0-cadb-11ef-8fb6-23e7e434a3e9.jpg.webp">
+
+                <div class="cPercipitation">
+                    <div>
+                        <h5>Percipitation</h5>
+                        <h3 id="now-percipitation">4 %</h3>
+                        <p style="margin:0px;">Visibility</p>
+                        <span id="visibility-index"> 5 km</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
+                    </div>
+                </div>
+
+                <div class="cAstro">
+                    <h5>Sunrise & Sunset</h5>
+
+                    <div>
+                        <span>Sunrise</span>
+                        <h3 id="sunrise">05:46 AM</h3>
+                        <span id="sunset">Sunset</span>
+                        <h3>06:41 PM</h3>
+                    </div>
+                    <div>
+                        <span>Sunrise</span>
+                        <h3 id="moonrise">01:42 AM</h3>
+                        <span>Sunset</span>
+                        <h3 id="moonset">03:59 PM</h3>
+                    </div>         
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content-right">
+            <h2>Tomorrow</h2>
+            <div class="cTomorrowWeather">
+                <div class="hourly-weather">
+                    <span class="hour">01:00</span>
+                    <span class="hourly-weather-icon"><img src="//cdn.weatherapi.com/weather/64x64/day/176.png"></span>
+                    <span class="hourly-weather-temp">32 C</span>
                 </div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; Innet Media Inc</p>
-    </footer>
 
 </body>
 </html>
