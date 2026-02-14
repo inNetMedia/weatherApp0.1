@@ -11,12 +11,10 @@ const c_weatherIcon = document.getElementById('current-weather-icon'),
     uv_index = document.getElementById('uv-index'),
     pressure_n = document.getElementById('now-pressure'),
     windChill_n = document.getElementById('wind-chill'),
-    precipitaion_n = document.getElementById('now-percipitation'),
+    precipitaion_n = document.getElementById('now-precipitation'),
     visibility = document.getElementById('visibility-index'),
     sunrise = document.getElementById('sunrise'),
     sunset = document.getElementById('sunset'),
-    moonrise = document.getElementById('moonrise'),
-    moonset = document.getElementById('moonset'),
     tmr_hourly_weather = document.querySelector('.tomorrow-hourly-weather');
 
 
@@ -39,14 +37,12 @@ export function displayWeather(data){
     visibility.textContent = data.current.vis_km
     sunrise.textContent = data.forecast.forecastday[0].astro.sunrise
     sunset.textContent = data.forecast.forecastday[0].astro.sunset
-    moonrise.textContent = data.forecast.forecastday[0].astro.moonrise
-    moonset.textContent = data.forecast.forecastday[0].astro.moonset
 
     //hourly weather for current day
-    if(h_forcastContainer.firstChild){
-        h_forcastContainer.removeChild(h_forcastContainer.firstChild)
-        tmr_hourly_weather.removeChild(tmr_hourly_weather.firstChild)
-    }
+
+    h_forcastContainer.innerHTML = ''
+    tmr_hourly_weather.innerHTML = ''
+
     data.forecast.forecastday[0].hour.forEach((dataset) => {
         const hourlyWeather = document.createElement('div')
         hourlyWeather.innerHTML = `
