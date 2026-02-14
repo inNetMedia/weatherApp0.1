@@ -6,11 +6,20 @@ body{
     color:white;
     
 }
+
+/*Header styles*/
 header{
     display:flex;
     justify-content: center;
     align-items:center;
 }
+h3,
+h5,
+span,
+h2{
+    margin:14px;
+}
+
 
 .divInput{
     position:absolute;
@@ -24,4 +33,71 @@ header{
     right:0px;
     background-color: white;
     color:black;
+}
+
+/*Right section*/
+.detailed-weather-content{
+    display:flex;
+    max-height:32rem;
+}
+.content-left{
+    max-width:70%;
+}
+.hourly-weather{
+    display:flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding:1rem;
+    background-color:rgba(128, 128, 128, 0.25);
+    border-radius:1rem;
+}
+.row2,
+.row3{
+    display:grid;
+    grid-template-columns: 25% 25% 50%;
+}
+.cWind,
+.cHumidity,
+.cUV,
+.cPressure,
+.cPrecipitation,
+.cAstro,
+.content-right{
+    background-color:rgba(128, 128, 128, 0.25);
+    margin:0.2rem;
+    border-radius: 1rem;
+}
+
+.cWind,
+.cHumidity,
+.cPressure,
+.cPrecipitation{
+    display:flex;
+}
+
+.content-right{
+    width: 30%;
+    height: 30.1rem;
+    overflow-y: scroll;
+    margin-left:0.5rem;
+}
+
+::-webkit-scrollbar {
+  background: #f1f1f100;
+  width:1px;
+}
+::-webkit-scrollbar-thumb {
+  background: #f100004e;
+  width: 3px;;
+}
+
+.cTomorrowWeather{
+    flex-direction: column;
+}
+.tomorrow-forecast{
+    display:flex;
+    margin-bottom:1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgba(117, 104, 104, 0.394);
 }
