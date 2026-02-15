@@ -3,128 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
-    <script type="module" src="src/src.js" defer></script>
-    <title>Weather App</title>
+    <script src="https://kit.fontawesome.com/b77d45241e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/index.css" >
+    <script src="src/index.js" defer></script>
+    <title>Weather</title>
 </head>
 <body>
     <header>
-        <div class="divInput">
-            <input id="input-location" placeholder="Search">
-            <div class="autofill"></div>
+        <div style="position:relative;" class="input-container">
+            <input placeholder="Search" id="search">
+            <button id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="location-autofill" style="position: absolute;">
+                <span>loacation1 fdasf sfdasf safda sfda</span>
+                <span>loacation1</span>
+                <span>loacation1</span>
+            </div>
         </div>
     </header>
 
-    <div class="gen-weather-info">
-
-        <div class="current-weather">
-            <div>
-                <span><img src="//cdn.weatherapi.com/weather/64x64/day/176.png" id="current-weather-icon"></span>
-                <div>
-                    <h4 id="current-weather-desc">Few Clouds</h4>
-                    <h1 id="current-weather-tempC">23 C</h1>
-                </div>
-            </div>
+    <content>
+        <div><img src="//cdn.weatherapi.com/weather/64x64/night/116.png" id="weatherIcon"></div>
+        <h1 id="current-temp">22 C</h1>
+        <h2 id="weather-location">London</h2>
+        <div class="other-weather-details">
+            <span id="wind-speed"><i class="fa-solid fa-wind"></i> 12 km/h</span>
+            <span id="humidity"><i class="fa-solid fa-droplet"></i> 12%</span>
         </div>
+    </content>
 
-        <div class="location-info">
-            <h4 id="weather-location">Seatle, United States</h4>
-            <span id="weather-feels-like">Feels Like 25 C</span>
-        </div>
-
-    </div>
-
-
-    <div class="detailed-weather-content">
-        <div class="content-left">
-            <div class="hourly-weather"></div>
-
-            <div class="row2">
-                <div class="cWind">
-                    <div>
-                        <h5>Wind</h5>
-                        <h3 id="now-windSpeed">4.3 Km/h</h3>
-                        <p style="margin:0px;">Max windspeed</p>
-                        <span id="now-windSpeed-max">23 km</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
-                    </div>
-                </div>
-
-                <div class="cHumidity">
-                    <div>
-                        <h5>Humidity</h5>
-                        <h3 id="now-humidity">4 %</h3>
-                        <p style="margin:0px;">Dewpoint</p>
-                        <span id="dewpoint-temp">44 C</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
-                    </div>
-                </div>
-
-                <div class="cUV">
-                    <h5>UV</h5>
-                    <h3 id="uv-index">8.8</h3>
-                    <div style="background-color: red; height: 2px;">
-                        <span id="uv-index-visualizer" style="background-color: gray; margin-left:15%; padding: 2px;">.</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!--Second row-->
-            <div class="row3">
-                <div class="cPressure">
-                    <div>
-                        <h5>Pressure</h5>
-                        <h3 id="now-pressure">1010</h3>
-                        <p style="margin:0px;">Wind Chill</p>
-                        <span id="wind-chill">13 C</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
-                    </div>
-                </div>
-
-                <div class="cPrecipitation">
-                    <div>
-                        <h5>Precipitation</h5>
-                        <h3 id="now-precipitation">4 %</h3>
-                        <p style="margin:0px;">Visibility</p>
-                        <span id="visibility-index"> 5 km</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-arrow-down" id="now-wind-direction"></i>
-                    </div>
-                </div>
-
-                <div class="cAstro">
-                    <h5>Sunrise & Sunset</h5>
-
-                    <div>
-                        <span>Sunrise</span>
-                        <h3 id="sunrise">05:46 AM</h3>
-                        <span>Sunset</span>
-                        <h3 id="sunset">06:41 PM</h3>
-                    </div>        
-                </div>
-
-            </div>
-        </div>
-
-        <div class="content-right">
-            <h2>Tomorrow</h2>
-            <div class="cTomorrowWeather">
-                <div class="tomorrow-hourly-weather">
-                    <span class="hour">01:00</span>
-                    <span class="hourly-weather-icon"><img src="//cdn.weatherapi.com/weather/64x64/day/176.png"></span>
-                    <span class="hourly-weather-temp">32 C</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <footer>
+        Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
+    </footer>
 </body>
 </html>
