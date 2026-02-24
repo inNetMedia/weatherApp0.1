@@ -12,7 +12,7 @@ const searchBar = document.getElementById('search'),
 
 
 const getDefaultWeather = async () => {
-    const response = await fetch(`http://localhost:3500/`)
+    const response = await fetch(`https://weather-api-2-289e.onrender.com/`)
     const data = await response.json()
     displayWeather(data)
 }
@@ -26,7 +26,7 @@ searchBar.addEventListener('input', async () => {
 })
 
 const showPossibleLocations = async (region) => {
-    const response = await fetch(`http://localhost:3500/search?q=${region}`)
+    const response = await fetch(`https://weather-api-2-289e.onrender.com/search?q=${region}`)
     const data = await response.json()
     displayLocations(data)
 }
@@ -55,7 +55,7 @@ function displayLocations(data){
 }
 
 const getWeatherData = async (location) => {
-    const response = await fetch(`http://localhost:3500/?q=${location}`)
+    const response = await fetch(`https://weather-api-2-289e.onrender.com/?q=${location}`)
     const data = await response.json()
     displayWeather(data)
 }
